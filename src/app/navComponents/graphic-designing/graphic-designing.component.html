@@ -5,7 +5,8 @@
     </button>
       <h1>Graphics Designing</h1>
   </div>
-    <div class="portfolio__nav">
+  <div id="portfolio-nav-container" class="portfolio-nav-container">
+    <div id="scroll-wrapper" class="portfolio__nav">
       <div class="portfolio-categories" *ngFor="let category of categories; index as i">
         <button
           (click)="showCategory(category)"
@@ -15,15 +16,11 @@
           {{ category.name }}
         </button>
       </div>
-      <div class="mobile-view-categories">
-        <select class="mobile-view-select-options" [(ngModel)]="name" (change)="select(name)">
-          <option *ngFor="let category of categories" [value]="category.name"
-            [selected]="currentCategory.name === category.name">
-            {{ category.name }}
-          </option>
-        </select>
+      <div class="categories-next-button" (click)="showNextItems()">
+        <img src="assets/img/chevron.svg" alt="">
       </div>
     </div>
+  </div>
     <div class="portfolio__gallery" [class.loading]="loading">
       <div
         class="portfolio__gallery--item"
@@ -34,9 +31,6 @@
           <img src="assets/img/{{ image.path }}" alt="{{ image }}" />
           <div class="img-overlay">
             <div class="plus"></div>
-            <div class="img-description">
-              <!-- <h3>{{ currentCategory.categoryHeading }}</h3> -->
-            </div>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@
     <img [src]="'assets/img/' + bgImage" alt="portfolio" />
   </div>
   <ng-container *ngIf="selected && !detailImages">
-    <div [ngClass]="{'increase-length': selectedCategory === 'Category2','change-width': selected && selected.selectedCategory && selected.selectedCategory.categoryHeading === 'Social Media Posts'}"  class="portfolio-single-preview-image">
+    <div [ngClass]="{'increase-length': selectedCategory === 'Category2','change-width': selected && selected.selectedCategory && selected?.selectedCategory?.categoryHeading === 'Movie Posters' || selected?.selectedCategory?.categoryHeading === 'Flyer Designs' || selected?.selectedCategory?.categoryHeading === 'Amazon Product Thumbnails'}"  class="portfolio-single-preview-image">
       <img class="image-slider" *ngFor="let image of selected.category  let i = index" 
       [ngStyle]="{ display: currentImageIndex === i ? 'block' : 'none' }"  src="{{ 'assets/img/' + image.path }}" />
       

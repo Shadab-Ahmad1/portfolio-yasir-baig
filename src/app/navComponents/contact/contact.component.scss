@@ -1,10 +1,11 @@
 .contact-me{
   h1{
-    font-weight: 700;
-    font-size: 31px;
-    line-height: 46px;
-    color: #FFFFFF;
-    padding-top: 2rem;
+    color: #344E41;
+    font-family: Zen Dots;
+    font-size: 1.6vw;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 1rem;
   }
   .get-in-touch{
   margin-top: 3rem;
@@ -12,10 +13,11 @@
     font-style: normal;
     font-weight: 700;
     font-size: 31px;
-    color: #FBBB2E;
+    font-family: Montserrat;
+    color: #588157;
     }
     span{
-      color:#FFFFFF
+      color:#3e3b3b;
     }
   }
   .contact-details-wrapper{
@@ -29,7 +31,7 @@
         align-items: center;
         gap: 15px;
         margin-bottom: 15px;
-        color: #FFFFFF;
+        color: #3e3b3b;
         .icon-background{
           background-image: url('/assets/img/icons-background.svg');
           background-repeat: no-repeat;
@@ -37,10 +39,12 @@
           background-size: 65px;
         }
         a,p{
-          color: #FFFFFF;
+          color: #3e3b3b;
           text-decoration: none;
+          transition: 0.2s;
           &:hover{
-            color: #FBBB2E;
+            color: #344E41;
+            font-weight: 600;
           }
         }
       }

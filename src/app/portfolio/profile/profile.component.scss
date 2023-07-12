@@ -1,9 +1,11 @@
 .user-profile {
     height: 250px;
-    background: linear-gradient(62.42deg, rgba(255, 255, 255, 0.1) 20.61%, rgba(255, 255, 255, 0) 82.27%);
     filter: drop-shadow(2px 4px 30px rgba(0, 0, 0, 0.1));
-    backdrop-filter: blur(35px);
     border-radius: 14px;
+    background: linear-gradient(341.72deg, rgba(255, 255, 255, 0.1) 7.28%, rgba(255, 255, 255, 0.036) 96.36%);
+    box-shadow: 2px 4px 30px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(35px);
+    backdrop-filter: blur(35px);
     margin-bottom: 20px;
 
     .user-profile-list {
@@ -22,14 +24,15 @@
             }
             .user-details{     
             .user-name {
-                color: #FFFFFF;
+                color: #588157;
+                font-family: Montserrat;
                 margin-bottom: 10px;
             }
             .user-role {
-                color: #24242E;
+                color: #f7f7f7;
                 font-weight: 400;
                 padding: 3px 6px;
-                background: #FBBB0E;
+                background: #588157;
             }
             .adobe-certificate{
                 margin-top: 13px;

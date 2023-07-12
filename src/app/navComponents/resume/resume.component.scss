@@ -2,11 +2,12 @@
   margin-top: 1rem;
 
   h1 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 31px;
-    color: #fff;
     margin-bottom: 20px;
+    color: #344E41;
+    font-family: Zen Dots;
+    font-size: 1.6vw;
+    font-weight: 400;
+    text-transform: uppercase;
   }
 
   .exp {
@@ -19,7 +20,7 @@
     z-index: 3;
 
     &::before {
-      background-color: #FBBB0E;
+      background-color: #344E41;
       position: absolute;
       opacity: 47%;
       width: 2px;
@@ -38,7 +39,8 @@
       font-style: normal;
       font-weight: 700;
       font-size: 21px;
-      color: #FBBB0E;
+      color: #588157;
+      font-family: Montserrat;
     }
   }
 
@@ -53,11 +55,12 @@
 
       .list-item {
         font-style: normal;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 15px;
         margin-left: -5px;
+        font-family: Montserrat;
         line-height: 26px;
-        color: #FBBB0E;
+        color: #588157;
 
         svg {
           margin-left: -3.10em;
@@ -88,7 +91,7 @@
 
         &::after {
           position: absolute;
-          background-color: #FBBB0E;
+          background-color: #344E41;
           opacity: 47%;
           width: 2px;
           content: "";
@@ -99,7 +102,7 @@
         }
 
         span {
-          color: #878789;
+          color: #3e3b3b;
         }
       }
 
@@ -108,21 +111,21 @@
 
         li {
           list-style: disc;
-          font-family: "Poppins";
           font-style: normal;
-          font-weight: 400;
+          font-weight: 500;
           font-size: 13px;
+          font-family: Montserrat;
           line-height: 20px;
-          color: #ffffff;
+          color: #3e3b3b;
         }
       }
 
       h4 {
         font-style: normal;
-        font-weight: bolder;
+        font-weight: 700;
         font-size: 13px;
         line-height: 20px;
-        color: #ffffff;
+        color: #3e3b3b;
       }
 
       h3 {
@@ -130,7 +133,8 @@
         font-weight: 900;
         font-size: 13px;
         line-height: 22px;
-        color: #ffffff;
+        color: #3e3b3b;
+        font-family: Montserrat;
       }
     }
   }

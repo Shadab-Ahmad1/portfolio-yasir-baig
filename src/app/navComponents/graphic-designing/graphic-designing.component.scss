@@ -1,12 +1,13 @@
 .portfolio {
     margin-top: 1rem;
+    position: relative;
   .navigate-to-portfolio{
     display: flex;
     gap: 16px;
     align-items: center;
     margin-bottom: 30px;
     button{
-      background-color: #FBBB0E;
+      background-color: #344E41;
       padding: 12px 15px;
       border-radius: 50%;
       outline: none;
@@ -19,18 +20,39 @@
     h1 {
       font-style: normal;
       font-weight: bold;
-      font-size: 31px;
-      color: #fff;
+      font-size: 1.5vw;
+      font-family: Montserrat;
+      color: #344E41;
     }
   
   }
-
-    .portfolio__nav {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+.portfolio-nav-container{
+    width: 90%;
+    overflow-x: scroll;
+    display: block;
+    scroll-behavior: smooth;
+    // -ms-overflow-style: none;
+    &::-webkit-scrollbar{
+      display: none;
     }
+  .portfolio__nav {
+    display: block;
+    white-space: nowrap;
+    .portfolio-categories{
+      display: inline-block;
+    }
+    .categories-next-button{
+      position: absolute;
+      right: 4.4vw;
+      top: 72px;
+      cursor: pointer;
+      img{
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
   }
   
   .portfolio__nav {
@@ -51,24 +73,7 @@
         color: #878789;
     
         &.active {
-          color: #FBBB0E;
-        }
-      }
-    }
-    .mobile-view-categories{
-      display: none;
-      .mobile-view-select-options{
-        padding: 9px 0px;
-        border-radius: 8px;
-        width: calc(100vw - 99px);
-        background-color: rgb(15, 25, 29);
-        color: #fff;
-        font-family: "Poppins", sans-serif !important;
-        cursor: pointer;
-        option{
-          background-color: rgb(15 25 29);
-          color: white;
-          padding-bottom: 1rem;
+          color: #344E41;
         }
       }
     }
@@ -165,14 +170,6 @@
       h1{
         font-size: 20px !important;
       }
-    }
-    .portfolio__nav{
-      .portfolio-categories{
-        display: none !important;
-      }
-      .mobile-view-categories{
-        display: block !important;
-      } 
     }
     .portfolio__gallery{
       flex-wrap: initial;

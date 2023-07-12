@@ -1,52 +1,337 @@
 <div class="main">
-    <div class="portfolio-section-bg" id="portfolio-section-bg">
-        <div class="shapes">
-            <ul class="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="porfolio-section-wrapper" id="porfolio-section-wrapper">
-          <div class="porfolio-section-list" id="porfolio-section-list">
-            <app-profile></app-profile>
-            <app-profile-list></app-profile-list>
-          </div>
-          <div class="porfolio-section-detail" id="porfolio-section-detail">
-            <app-profile-detail></app-profile-detail>
-          </div>
-          <ng-container>
-            <div class="user-profile-detail-navbar-mobile">
-              <ul class="user-profile-detail-nav-links">
-                <li>
-                  <a routerLink="about" href="" [routerLinkActive]="'active'">About</a>
-                </li>
-                <li>
-                  <a routerLink="resume" href="" [routerLinkActive]="'active'"
-                    >Resume</a
-                  >
-                </li>
-                <li>
-                  <a routerLink="portfolio" href="" [routerLinkActive]="'active'"
-                    >Portfolio</a
-                  >
-                </li>
-                <li>
-                  <a routerLink="contact" href="" [routerLinkActive]="'active'"
-                    >Contact</a
-                  >
-                </li>
-              </ul>
+  <div class="portfolio-section-bg" id="portfolio-section-bg">
+    <!-- Navigation Menu For Mobile View With Sidebar -->
+    <div class="navbar-mobile">
+          <div class="user-whole-profile-wrapper">
+            <div class="user-profile-wrapper">
+              <div class="user-profile-icon">
+                <img *ngIf="!isOpenProfile" src="assets/img/main-avatar.png" alt="">
+                <i *ngIf="isOpenProfile" class="material-icons">close</i>
+              </div>            
+              <div class="user-profile-title">
+                <div class="user-profile-name">
+                  <span>Yasir Baig</span>
+                </div>
+                <div class="user-profile-role">
+                  <span>Senior UI/UX Designer</span>
+                </div>
+              </div>
             </div>
-          </ng-container>
+            <div class="user-toggle-menu-wrapper">
+              <div class="active-router">
+                <p>{{activeRoute}}</p>
+              </div>
+              <div class="toggle-menu-button">
+                <button class="menu-button"  (click)="toggleSidebar()">
+                  <i class="material-icons">{{ isOpen ? "close" : "menu" }}</i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-mobile" [ngClass]="{ 'open': isOpen, 'opened-sidebar': isOpen }">
+            <div class="menu-type">
+              <span>MENU</span>
+            </div>
+            <div class="mobile-navigation-menu">
+              <div class="user-profile-detail-navbar">
+                <ul class="user-profile-detail-nav-links">
+                  <li>
+                    <a routerLink="about" (click)="toggleSidebar()" [routerLinkActive]="'active'">About</a>
+                  </li>
+                  <li>
+                    <a routerLink="resume" (click)="toggleSidebar()" [routerLinkActive]="'active'">Resume</a>
+                  </li>
+                  <li>
+                    <a (click)="toggleSidebar()"
+                      routerLink="UI/UX"
+                      [ngClass]="{ active: isPortfolioActive() }"
+                    >
+                      Portfolio
+                    </a>
+                  </li>
+                  <li>
+                    <a (click)="toggleSidebar()" routerLink="contact" [routerLinkActive]="'active'">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="sidebar-footer" style="display: none;">
+              <div class="social-icons" [ngClass]="{'open': isOpen}">
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+    </div>
+    <!-- Navigation Menu For Desktop View-->
+    <div [ngClass]="{'move-right': activeRoute !== 'about'}" class="navigation-menu">
+      <div class="user-profile-detail-navbar">
+        <div class="user-profile-wrapper">
+          <div class="user-profile-icon">
+            <img src="assets/img/main-avatar.png" alt="">
+          </div>            
+          <div class="user-profile-title">
+              <p class="user-profile-name">Yasir Baig</p>
+              <p class="user-profile-role">UI/UX Designer</p>
+          </div>
+        </div>
+        <ul class="user-profile-detail-nav-links">
+          <li>
+            <a routerLink="about" [routerLinkActive]="'active'">About</a>
+          </li>
+          <li>
+            <a routerLink="resume" [routerLinkActive]="'active'">Resume</a>
+          </li>
+          <li>
+            <a routerLink="portfolio" [ngClass]="{'active': isPortfolioActive() }">
+              Portfolio
+            </a>
+          </li>
+          <li>
+            <a routerLink="contact" [routerLinkActive]="'active'">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Floading Circles Shapes on background -->
+    <div style="display: none;" class="card">
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <!-- Check if the active route is equal to about -->
+    <div *ngIf="activeRoute === 'about' && isDesktop" class="porfolio-about-section-wrapper">
+      <div class="porfolio-section-list" id="porfolio-section-list">
+        <div class="profile-content">
+          <div class="about-me">
+            <div class="content">
+              <div class="content-wrapper">
+                <h2>Hey there! <span>I’m Yasir</span></h2>
+                <div class="paragrapgh">
+                  <p class="para1">
+                    I am a Seasoned Creative UX & UI and Creative Designer with
+                    over 10+ years of experience brining consumer-level usability
+                    to enterprise-level applications.
+                  </p>
+
+                  <p class="para2">
+                    I am having a vast experience with client and stakeholder
+                    relationships, along with project management, leadership,
+                    and strategy. Possessing a combination of conceptual
+                    strength and technical proficiency. Established self-starter
+                    and team leader that actively helps and refines all
+                    processes necessary to achieve and maintain goals. My focus
+                    and competencies include creative direction, user interface
+                    design, user experience design, visual design, iOS design,
+                    web design, and graphic design.
+                  </p>
+                </div>
+                <div class="buttons">
+                  <a
+                  href="/assets/cv/Faisal-Ali-UX-Expert.pdf"
+                  download="Faisal-Ali-UX-Expert.pdf" style="color: #fff; text-decoration: none;"
+                >
+                  <div class="visit-portfolio-btn">
+                    <span>Download Resume</span>
+                  </div>
+                  </a>
+                  <div routerLink="/UI/UX" class="visit-portfolio-btn">
+                    <span>Visit My Portfolio</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="second-image">
+              <figure>
+                <img src="assets/img/about-avatar-image.png" alt="" />
+                <figcaption style="text-align: right;">Lahore, Pakistan</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="porfolio-section-detail" id="porfolio-section-detail">
+          <div class="portfolio-about-user-left overflow">
+            <div class="about-user-left-whole-wrapper">
+              <div class="user-profile-tool-set">
+                <div class="user-profile-info-wrapper">
+                  <div class="toolset-heading">
+                    <h4>TOOLSET</h4>
+                  </div>
+                    <div class="toolset-whole-container">
+                      <div class="icons-image">
+                        <img src="assets/img/figma-icon.png" alt="" srcset="">
+                      </div>
+                      <div class="icons-image">
+                        <img src="assets/img/invision-app.png" alt="" srcset="">
+                      </div>
+                      <div class="icons-image">
+                        <img src="assets/img/xd-icon.png" alt="" srcset="">
+                      </div>
+                      <div class="icons-image">
+                        <img src="assets/img/sketch-icon.png" alt="" srcset="">
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="user-profile-skillset">
+                <div class="skillset-heading">
+                  <h4>SKILLSET</h4>
+                </div>
+                  <div class="user-skills-whole-wrapper">
+                    <div class="user-profile-skills-progressbar-wrapper">
+                      <div class="profile-skills-lists">
+                        <span class="profile-skill-name">SEO/SEM</span>
+                        <span class="profile-skill-percentage">90%</span>
+                      </div>
+                      <div class="profile-skills-progress">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          aria-valuenow="90"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 90%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="user-profile-skills-progressbar-wrapper">
+                      <div class="profile-skills-lists">
+                        <span class="profile-skill-name">HTML/CSS</span>
+                        <span class="profile-skill-percentage">100%</span>
+                      </div>
+                      <div class="profile-skills-progress">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          aria-valuenow="80"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 100%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="user-profile-skills-progressbar-wrapper">
+                      <div class="profile-skills-lists">
+                        <span class="profile-skill-name">jquery</span>
+                        <span class="profile-skill-percentage">70%</span>
+                      </div>
+                      <div class="profile-skills-progress">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          aria-valuenow="70"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 70%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="user-profile-skills-progressbar-wrapper">
+                      <div class="profile-skills-lists">
+                        <span class="profile-skill-name">Salesforce</span>
+                        <span class="profile-skill-percentage">90%</span>
+                      </div>
+                      <div class="profile-skills-progress">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          aria-valuenow="90"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 90%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="user-profile-skills-progressbar-wrapper">
+                      <div class="profile-skills-lists">
+                        <span class="profile-skill-name">CMS/CRM</span>
+                        <span class="profile-skill-percentage">80%</span>
+                      </div>
+                      <div class="profile-skills-progress">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          aria-valuenow="80"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 80%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="user-profile-skills-progressbar-wrapper">
+                      <div class="profile-skills-lists">
+                        <span class="profile-skill-name">WordPress/Joomla</span>
+                        <span class="profile-skill-percentage">80%</span>
+                      </div>
+                      <div class="profile-skills-progress">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          aria-valuenow="80"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 80%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="content-wrapper">
+              <div class="heading">
+                <h4>DESIGN PROCESS</h4>
+              </div>
+              <img src="assets/img/design-process.png" alt="" />
+            </div>
+          </div>
         </div>
       </div>
-    
+    </div>
+    <!-- Check if the active route is not equal to about to display other pages-->
+    <div *ngIf="activeRoute !== 'about' && isDesktop"
+      class="porfolio-section-wrapper"
+      id="porfolio-section-wrapper"
+    >
+      <div class="porfolio-section-list" id="porfolio-section-list">
+        <app-profile></app-profile>
+        <app-profile-list></app-profile-list>
+      </div>
+      <div class="porfolio-section-detail" id="porfolio-section-detail">
+        <app-profile-detail></app-profile-detail>
+      </div>
+    </div>
+    <!-- Check for the mobile view-->
+    <div *ngIf="!isDesktop"
+    class="porfolio-section-wrapper"
+    id="porfolio-section-wrapper"
+  >
+    <div class="porfolio-section-list" id="porfolio-section-list">
+      <app-profile></app-profile>
+      <app-profile-list></app-profile-list>
+    </div>
+    <div class="porfolio-section-detail" id="porfolio-section-detail">
+      <app-profile-detail></app-profile-detail>
+    </div>
+    </div>
+  </div>
 </div>
