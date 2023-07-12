@@ -75,7 +75,7 @@
   }
   .about-work-process-whole-wrapper {
     .about-work-process-container {
-      margin-top: 45px;
+      margin-top: 60px;
       .work-process-title{
         h2{
           color: #344E41;
@@ -87,6 +87,7 @@
         }
       }
       .work-process-image{
+        margin-top: 30px;
         img{
           width: 100%;
         }
@@ -94,7 +95,8 @@
     }
   }
   .user-skills-whole-wrapper {
-    margin-top: 40px;
+    margin-top: 60px;
+    padding-bottom: 50px;
     .work-process-title{
       h2{
         color: #344E41;
@@ -161,25 +163,20 @@
     }
     .tools-container{
       .tools-list-wrapper{
-        text-align: center;
-        .tools-list{
-          list-style: none;
-          padding-left: 0;
-          margin: 0;
-          li{
-            color: #585858;
-            font-size: 32px;
-            font-weight: 700;
-            position: relative;
-            padding-top: 15px;
-            &:after{
-              content: url('/assets/img/underline.png');
-              position: absolute;
-              top: 36px;
-              left: 75px;
-            }
-            &:last-child::after{
-              content: none;
+        margin-top: 40px;
+        .toolset-whole-container{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          width: 80%;
+          gap: 15px;
+          margin: 0 auto;
+          .icons-image{
+            text-align: center;
+            width: 45%;
+            img{
+              width: 100%;
             }
           }
         }
