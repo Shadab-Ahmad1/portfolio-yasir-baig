@@ -27,10 +27,11 @@
   
   }
 .portfolio-nav-container{
-    width: 90%;
-    overflow-x: scroll;
-    display: block;
-    scroll-behavior: smooth;
+  width: 91%;
+  overflow-x: scroll;
+  display: block;
+  scroll-behavior: smooth;
+  margin: 0 auto;
     // -ms-overflow-style: none;
     &::-webkit-scrollbar{
       display: none;
@@ -38,15 +39,38 @@
   .portfolio__nav {
     display: block;
     white-space: nowrap;
+    .categories-previous-button{
+      position: absolute;
+      left: -10px;
+      top: 65px;
+      cursor: pointer;
+      padding:7px 13px 4px 13px;
+      &:hover{
+        background-color: #344E41;
+        border-radius: 50%;
+        path{
+          fill: #fff;
+        }
+      }
+    }
     .portfolio-categories{
       display: inline-block;
+      margin-right: 35px;
     }
     .categories-next-button{
       position: absolute;
-      right: 4.4vw;
-      top: 72px;
+      right: 1.4vw;
+      top: 65px;
       cursor: pointer;
-      img{
+      padding:7px 13px 4px 13px;
+      &:hover{
+        background-color: #344E41;
+        border-radius: 50%;
+        path{
+          fill: #fff;
+        }
+      }
+      svg{
         transform: rotate(180deg);
       }
     }
@@ -62,7 +86,6 @@
         border: none;
         outline: none;
         background-color: transparent;
-        padding-right: 2.5rem;
         text-transform: capitalize;
         font-weight: bold;
         font-size: 15px;
@@ -183,5 +206,16 @@
           }
         }
       }
+    }
+    .portfolio-nav-container{
+      width: 100% !important;
+      margin: initial !important;
+      .portfolio-categories{
+        margin-right: 15px !important;
+      }
+    }
+    .categories-next-button,
+    .categories-previous-button{
+      display: none;
     }
   }

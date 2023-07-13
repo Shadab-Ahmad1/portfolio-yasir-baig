@@ -10,9 +10,9 @@ import { CommonServiceService } from 'src/app/services/common-service.service';
 export class GraphicDesigningComponent implements OnInit {
 
   public loading = false;
-  currentCategoryIndex: number = 0;
-  scrollWrapper: HTMLElement | null = null; // Reference to the scroll wrapper element
-  constructor(private router: Router , private service:CommonServiceService , private elementRef: ElementRef) { }
+  showPreviousButton = false;
+  showNextButton = false;
+  constructor(private router: Router , private service:CommonServiceService ) { }
 
   public categories = [
     {
@@ -375,9 +375,6 @@ export class GraphicDesigningComponent implements OnInit {
       }
     }
   }
-  ngAfterViewInit() {
-    this.scrollWrapper = this.elementRef.nativeElement.querySelector('#scroll-wrapper');
-  }
   ngOnInit(): void {
     const savedCategory = this.categories.find(category => category.categoryHeading === this.service.currentCategoryHeading);
     if(savedCategory){
@@ -417,8 +414,14 @@ export class GraphicDesigningComponent implements OnInit {
     this.router.navigate(['portfolio']);
   }
   showNextItems() {
-      const element:any = document.getElementById('portfolio-nav-container');
-      element.scrollLeft += 500;
+    const element: any = document.getElementById('portfolio-nav-container');
+    element.scrollLeft += 500;
+    this.showPreviousButton = true;
   }
   
+  showPreviousItems(){
+    const element:any = document.getElementById('portfolio-nav-container');
+    element.scrollLeft -= 500;
+    this.showPreviousButton = false; 
+  }
 }
