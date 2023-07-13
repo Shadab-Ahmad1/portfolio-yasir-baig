@@ -19,9 +19,10 @@
     }
     h1 {
       font-style: normal;
-      font-weight: bold;
+      font-weight: 500;
       font-size: 1.5vw;
-      font-family: Montserrat;
+      font-family: Zen Dots;
+      text-transform: uppercase;
       color: #344E41;
     }
   
@@ -191,8 +192,7 @@
   @media (max-width:700px){
     .portfolio{
       h1{
-        font-size: 5.5vw !important;
-        margin-bottom: 0px;
+        font-size: 4.4vw !important;
       }
     }
     .portfolio__gallery{
