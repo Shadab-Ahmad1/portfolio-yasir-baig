@@ -11,7 +11,7 @@ export class GraphicDesigningComponent implements OnInit {
 
   public loading = false;
   showPreviousButton = false;
-  showNextButton = false;
+  showNextButton = true;
   constructor(private router: Router , private service:CommonServiceService ) { }
 
   public categories = [
@@ -415,13 +415,17 @@ export class GraphicDesigningComponent implements OnInit {
   }
   showNextItems() {
     const element: any = document.getElementById('portfolio-nav-container');
-    element.scrollLeft += 500;
-    this.showPreviousButton = true;
+    element.scrollLeft += 500;    
+    if(this.categories.length - 1){
+    this.showPreviousButton = true; 
+      this.showNextButton = false;
+    }
   }
   
   showPreviousItems(){
     const element:any = document.getElementById('portfolio-nav-container');
     element.scrollLeft -= 500;
     this.showPreviousButton = false; 
+    this.showNextButton = true;
   }
 }
