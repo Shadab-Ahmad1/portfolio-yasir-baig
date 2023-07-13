@@ -64,8 +64,9 @@
   .portfolio-wrapper{
     .portfolio-heading{
       h1{
-        padding-top: 0rem;
-        padding-left: 0rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        font-size: 6.2vw;
       }
     }
     .select-category-whole-wrapper{
@@ -75,7 +76,10 @@
         flex-direction: column;
         .select-category-ui,
         .select-category-graphics{
-          width: 100% !important;
+          width: 98% !important;
+          h3{
+            font-size: 6.1vw;
+          }
         }
       }
     }
