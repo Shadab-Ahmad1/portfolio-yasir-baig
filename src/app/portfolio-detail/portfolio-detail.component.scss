@@ -18,11 +18,11 @@
       cursor: pointer;
     }
     h1 {
-      font-style: normal;
-      font-weight: bold;
-      font-size: 28px;
-      font-family: Montserrat;
-      color: #344E41;
+      color: #344e41;
+      font-family: Zen Dots;
+      font-size: 1.5vw;
+      font-weight: 400;
+      text-transform: uppercase;
     }
   }
   .portfolio-details-hero {
@@ -52,7 +52,7 @@
       width: 100%;
     }
     .arrow-buttons {
-      position: absolute;
+      position: fixed;
       top: 50%;
       opacity: 0;
       transition: opacity 0.3s;
@@ -200,6 +200,11 @@
       }
     }
   
+  }
+  .portfolio-details-heading{
+    h1{
+      font-size: 4.5vw !important;
+    }
   }
   .modal-content {
     .modal-body {

@@ -88,7 +88,11 @@ export class PortfolioDetailComponent implements OnInit {
   }
 
   public  goback(): void {
-    this.Router.navigate(['graphic-designing']);
+    const selectedItemId = this.selected.id; 
+    this.Router.navigate(['graphic-designing'], { 
+      queryParams: { selectedItemId },
+      fragment: 'portfolioItem-' + selectedItemId, 
+    });
   }
   public  gobacktoUi(): void {
     const selectedItemId = this.selected.id; 
@@ -100,10 +104,35 @@ export class PortfolioDetailComponent implements OnInit {
 
   public previousImage(): void {
     this.currentImageIndex--;
-
+    const previousImageId = this.selected.category[this.currentImageIndex]?.id;
+    if (previousImageId) {
+      this.Router.navigate(['portfolioDetails', previousImageId], {
+        state: {
+          images: this.detailImages,
+          bgImage: this.bgImage,
+          selected: {
+            ...this.selected,
+            index: this.currentImageIndex
+          }
+        },
+      });
+    }
 }
   public nextImage(): void {
   this.currentImageIndex++;
+  const nextImageId = this.selected.category[this.currentImageIndex]?.id;
+  if (nextImageId) {
+    this.Router.navigate(['portfolioDetails', nextImageId], {
+      state: {
+        images: this.detailImages,
+        bgImage: this.bgImage,
+        selected: {
+          ...this.selected,
+          index: this.currentImageIndex
+        }
+      },
+    });
+  }
 }
   public onClose(){
   this.modalService.dismissAll();

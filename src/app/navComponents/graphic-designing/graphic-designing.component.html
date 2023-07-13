@@ -33,6 +33,7 @@
         class="portfolio__gallery--item"
         *ngFor="let image of currentCategory.images; let i = index"
         [class.loaded]="!loading"
+        [attr.id]="'portfolioItem-' + image.id"
       >
         <div class="gallery-image" [ngClass]="{'increase-length': currentCategory?.name ==='Branding designs'}" (click)="gotoDetails(image , i)">
           <img src="assets/img/{{ image.path }}" alt="{{ image }}" />
