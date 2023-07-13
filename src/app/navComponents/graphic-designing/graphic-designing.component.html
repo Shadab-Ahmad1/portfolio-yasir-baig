@@ -34,7 +34,7 @@
         *ngFor="let image of currentCategory.images; let i = index"
         [class.loaded]="!loading"
       >
-        <div class="gallery-image" (click)="gotoDetails(image , i)">
+        <div class="gallery-image" [ngClass]="{'increase-length': currentCategory?.name ==='Branding designs'}" (click)="gotoDetails(image , i)">
           <img src="assets/img/{{ image.path }}" alt="{{ image }}" />
           <div class="img-overlay">
             <div class="plus"></div>
