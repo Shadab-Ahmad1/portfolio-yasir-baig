@@ -448,6 +448,10 @@
                     height: 3.5vh;
                     justify-content: center;
                     cursor: pointer;
+                    transition: 0.2s;
+                    &:hover{
+                      background: #436e42;
+                    }
                     span{
                       text-transform: uppercase;
                     }
