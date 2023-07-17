@@ -173,94 +173,6 @@
           }
         }
       }
-      .sidebar-profile{
-        position: absolute;
-        left: -330px;
-        top: 0;
-        background: #fff;
-        border-radius: 0px 0px 0px 16px;
-        height:calc(100vh - 20px);
-        z-index: 999;
-        border-top-right-radius: 20px;
-        &.open {
-          left: 0px;
-          top: 0px;
-          width: 210px;
-          transition: left 0.3s ease-in-out;
-          z-index: 999;
-        }
-        .user-profile-list {
-          padding-top: 3rem;
-          .user-profile-wrapper {
-              padding: 10px 6px;
-              text-align: center;
-              display: flex;
-              gap: 7px;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-  
-              .profile-img {
-                  img {
-                      border-radius: 50%;
-                      width: 90px;
-                      height: 90px;
-                      object-fit: contain;
-                      object-position: top;
-                  }
-              }
-  
-              .user-details {
-                  .user-name {
-                      color: #3E3B3B;
-                      font-size: 18px;
-                  }
-  
-                  .user-role {
-                      color: #786E6E;
-                      font-weight: 400;
-                      font-size: 14px;
-                  }
-  
-                  .adobe-certificate {
-                      margin-top: 13px;
-                  }
-              }
-          }
-          .contact-details-icons-whole-wrapper{
-              margin-top: 2rem;
-              padding: 0 8px;
-              .contact-details-social-icons{
-                  display: flex;
-                  gap: 10px;
-                  margin-bottom: 30px;
-                  align-items: center;
-                  .icon-background{
-                      background-image: url('/assets/img/Rectangle-35.svg');
-                      box-shadow: 2px 4px 30px rgba(0, 0, 0, 0.1);
-                      backdrop-filter: blur(35px);
-                      border-radius: 4px;
-                      padding: 10px 12px 2px 13px;
-                      background-size: contain;
-                      background-repeat: no-repeat;
-                      img{
-                          width: 20px;
-                          height: 24px;
-                          
-                      }
-                    }
-                    a,p{
-                      color: #3E3B3B;
-                      text-decoration: none;
-                      font-size: 2.7vw;
-                      &:hover{
-                        color: #62A2B6;
-                      }
-                    }
-              }
-          }
-      }
-      }
     }
     .navigation-menu{
       position: absolute;
@@ -340,31 +252,6 @@
         }
       }
       
-    }
-    .card {
-      transition: all 0.2s;
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      .circle {
-        width: 190px;
-        height: 190px;
-        background: linear-gradient(137deg, #FFC3C7 0%, #FF8E96 100%);
-        filter: drop-shadow(0px 0px 20px rgba(128, 0, 0, 0.17));
-        border-radius: 50%;
-        position: absolute;
-        &:nth-child(1) {
-          top: 17px;
-          left: 2%;
-        }
-        &:nth-child(2) {
-          bottom: 1%;
-          right: 3%;
-          width: 220px;
-          height: 220px;
-        }
-      }
     }
     .porfolio-about-section-wrapper{
       .porfolio-section-list{
@@ -640,41 +527,10 @@
 }
 
 
-
-@media (max-width: 1680px) {
-  .about-me{
-    .content{
-      .content-wrapper{
-        &::before{
-          left: -225px !important;
-          top: -82px !important;
-          transform: scale(0.48) !important;
-        }
-      }
-    }
-  }
-}
-@media (max-width: 1360px) {
-  .about-me{
-    .content{
-      .content-wrapper{
-        &::before{
-          left: -220px !important;
-          top: -108px !important;
-          transform: scale(0.43) !important;
-        }
-      }
-    }
-  }
-}
-
 @media (max-width:700px) {
   .main {
     background: none !important;
     height: 95vh;
-  }
-  .card{
-    display: none;
   }
   .navigation-menu{
     display: none;
@@ -686,7 +542,6 @@
     display: none;
   }
 }
-
 
 @media (max-width:1200px) {
 .porfolio-section-wrapper{

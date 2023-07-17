@@ -34,15 +34,6 @@ export class UIUXComponent implements OnInit {
   ];
 
   currentCategory: any = this.categories[0];
-  name: string = `${this.categories[0].name}`;
-  select(selectVal: string) {
-    for (let i = 0; i < this.categories.length; i++) {
-      let token = this.categories[i].name.includes(selectVal)
-      if (token === true) {
-        this.showCategory(this.categories[i])
-      }
-    }
-  }
   ngOnInit(): void {
     const savedCategory = this.categories.find(category => category.categoryHeading === this.service.currentCategoryHeading);
     if(savedCategory){
