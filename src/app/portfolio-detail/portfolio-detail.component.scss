@@ -86,10 +86,8 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    justify-content: space-between;
     .portfolio-detail-image {
       flex-basis: 31%;
-      height: 181px;
       cursor: pointer;
       img {
         width: 100%;
